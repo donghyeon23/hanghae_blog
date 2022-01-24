@@ -66,17 +66,13 @@
         <div class="banner" onclick="window.location.href = '/'"></div>
         <div class="container">
             <div class="exist-post">
-                <div class="d-flex align-items-end">
+                <div>
                     <div>
-                        <h1 id="title">제목</h1>
+                        <input class="input" type="text" placeholder="제목">
                     </div>
-                    <button onclick="save_word()" id="btn-edit" class="btn btn-outline-sparta btn-lg">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <button onclick="save_word()" id="btn-save" class="btn btn-outline-sparta btn-lg">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     </button>
-                    <button onclick="delete_word()" id="btn-delete" class="btn btn-sparta btn-lg">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                    </button>
-
                 </div>
                 <hr>
                 <div id="content">

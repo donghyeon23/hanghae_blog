@@ -1,5 +1,6 @@
 const express = require('express');
-const connect = require('./schemas')
+const connect = require('./schemas');
+const Post = require('./schemas/post');
 const app = express();
 const port = 3000;
 
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 // ejs 파일 경로
 app.set('views', './views');
-app.use(express.static('./static'))
+app.use(express.static('static'));
 
 app.use(express.json());
 
@@ -28,6 +29,10 @@ app.get('/', (req, res) => {
 
 app.get('/detail', (req, res) => {
     res.render('detail');
+});
+
+app.get('/post', (req, res) => {
+    res.render('post');
 });
 
 app.listen(port, () => {

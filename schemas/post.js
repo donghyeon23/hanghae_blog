@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const PostsSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
     id: {
         type: Number,
         required: true,
@@ -23,4 +23,4 @@ const PostsSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Posts", postsSchema);
+module.exports = mongoose.model("Post", PostSchema);

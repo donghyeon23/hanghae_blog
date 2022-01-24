@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta property="og:title" content="hanghae99 mini blog" />
     <meta property="og:description" content="mini blog for hanghae99 project" />
-    <meta property="og:image" content="images/favicon.ico" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <meta property="og:image" content="/images/favicon.ico" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title>My Mini Blog</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='style/mystyle.css' rel="stylesheet">
+    <link href='/css/main.css' rel="stylesheet">
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -27,6 +27,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
     <!-- style css -->
     <style>
@@ -97,9 +98,11 @@
             <input id="input-word" class="form-control" style="margin-right: 0.5rem">
             <button class="btn btn-light" onclick="find_word()"><i class="fa fa-search"></i></button>
         </div>
+        <button class="btn btn-lg" onclick="window.location.href = '/post'">새 글 작성</button>
         <table class="table">
             <thead class="thead-light">
                 <tr>
+                    <th scope="col">번호</th>
                     <th scope="col" style="width:50%"> 글 제목 </th>
                     <th scope="col">작성자</th>
                     <th scope="col">작성일자</th>
@@ -107,7 +110,8 @@
                 </tr>
             </thead>
             <tbody id="tbody-box">
-                <tr id="word-{{ word.word }}">
+                <tr id="word">
+                    <td>1</td>
                     <td><a href="/detail/">test 글 제목</a></td>
                     <td>작성자t e s t</td>
                     <td>날짜 01/23</td>

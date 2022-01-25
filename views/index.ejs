@@ -28,6 +28,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script src="scripts/api.js"></script>
 
     <!-- style css -->
     <style>
@@ -89,6 +90,9 @@
 
         }
     </style>
+    <script>
+
+    </script>
 </head>
 
 <body>
@@ -102,7 +106,6 @@
         <table class="table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">번호</th>
                     <th scope="col" style="width:50%"> 글 제목 </th>
                     <th scope="col">작성자</th>
                     <th scope="col">작성일자</th>
@@ -110,12 +113,14 @@
                 </tr>
             </thead>
             <tbody id="tbody-box">
-                <tr id="word">
-                    <td>1</td>
-                    <td><a href="/detail/">test 글 제목</a></td>
-                    <td>작성자t e s t</td>
-                    <td>날짜 01/23</td>
-                </tr>
+                
+                    <% for(let post of posts) { %>
+                    <tr id="word">
+                    <td><a href="/detail?id=<%= post.id %>"><%= post.title %></a></td>
+                    <td><%= post.writer %></td>
+                    <td><%= post.date %></td>
+                    <% } %>
+                    </tr>
             </tbody>
         </table>
 

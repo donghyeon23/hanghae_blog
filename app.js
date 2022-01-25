@@ -18,21 +18,33 @@ app.set('view engine', 'ejs');
 // ejs 파일 경로
 app.set('views', './views');
 app.use(express.static('static'));
-
+app.use(express.urlencoded());
 app.use(express.json());
 
 app.use("/api", [postRouter]);
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    const posts = await Post.find().sort('-date');
+    res.render('index', { posts: posts });
 });
 
-app.get('/detail', (req, res) => {
-    res.render('detail');
+app.get('/post', async (req, res) => {
+    const { id } = req.query;
+    console.log(id)
+    if (id === undefined) {
+        res.render('post', { post: [], status: 'new', postNoId: [] });
+    } else {
+        const post = await Post.findOne({ _id: id });
+        const postNoId = await Post.findOne({ _id: id }, { '_id': false });
+        res.render('post', { post: post, status: 'old', postNoId: postNoId });
+    }
+
 });
 
-app.get('/post', (req, res) => {
-    res.render('post');
+app.get('/detail', async (req, res) => {
+    const { id } = req.query;
+    const post = await Post.findOne({ _id: id });
+    res.render('detail', { post: post });
 });
 
 app.listen(port, () => {

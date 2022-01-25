@@ -28,6 +28,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script src="scripts/api.js"></script>
 
     <style>
         .container {
@@ -68,19 +69,17 @@
             <div class="exist-post">
                 <div class="d-flex align-items-end">
                     <div>
-                        <h1 id="title">제목</h1>
+                        <h1 id="title"><%= post.title %></h1>
                     </div>
-                    <button onclick="save_word()" id="btn-edit" class="btn btn-outline-sparta btn-lg">
+                    <button onclick='window.location.href="/post?id=<%= post.id %>"' id="btn-edit" class="btn btn-outline-sparta btn-lg">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
-                    <button onclick="delete_word()" id="btn-delete" class="btn btn-sparta btn-lg">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                    </button>
-
                 </div>
                 <hr>
+                <label id="writer"><%=post.writer%></label>
+                <hr>
                 <div id="content">
-                    <p>내용 내용 내용</p>
+                    <p><%=post.content%></p>
                 </div>
             </div>
         </div>
